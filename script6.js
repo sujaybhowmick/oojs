@@ -8,7 +8,7 @@ OOJS.Foo = function(){
 	this.x = 1;
 	this.y = 2;
 	var xp = 100;
-	this._get = function() { return xp};
+	this.getXp = function() { return xp};
 }
 
 OOJS.Foo.prototype.get = function(key){
@@ -28,7 +28,7 @@ console.log(foo.toString());
 foo.set('x', 3);
 foo.set('y', 4);
 console.log(foo.toString());
-console.log("Private member xp = " + foo._get('xp'));
+console.log("Private member xp = " + foo.getXp());
 
 var OOJS2 = OOJS2 || {};
 
