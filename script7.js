@@ -1,34 +1,37 @@
 /**
-	Subclassing using prototype
+	Subclassing using prototype (Namespaces version)
 **/
-function Engine(cylinders, cc, engineType){
+var OOJS = OOJS || {};
+
+// Define the constructor
+OOJS.Engine = function (cylinders, cc, engineType){
 	this.cylinders = cylinders;
 	this.cc = cc;
 	this.engineType = engineType;
 }
 
-Engine.prototype.startEngine = function(){
+OOJS.Engine.prototype.startEngine = function(){
 	console.log("Starting engine with Engine Type = " + this.engineType + ", cylinders = " + this.cylinders + " and cc = " + this.cc);
 }
 
-Engine.prototype.stopEngine = function(){
+OOJS.Engine.prototype.stopEngine = function(){
 	console.log("Stopping engine with Engine Type = " + this.engineType + ", cylinders = " + this.cylinders + " and cc = " + this.cc);
 }
 
-
-function V8Engine(cylinders, cc, engineType){
+// Define the constructor
+OOJS.V8Engine = function(cylinders, cc, engineType){
 	this.cylinders = cylinders;
 	this.cc = cc;
 	this.engineType = engineType;
 }
 
-V8Engine.prototype.startV8Engine = function(){
+OOJS.V8Engine.prototype.startV8Engine = function(){
 	console.log("Starting engine with Engine Type = " + this.engineType + ", cylinders = " + this.cylinders + " and cc = " + this.cc);	
 }
 
-V8Engine.prototype = new Engine();
+OOJS.V8Engine.prototype = new OOJS.Engine();
 
-v8Engine = new V8Engine(8, 2000, 'V8');
+v8Engine = new OOJS.V8Engine(8, 2000, 'V8');
 
 v8Engine.startEngine();
 v8Engine.stopEngine();
